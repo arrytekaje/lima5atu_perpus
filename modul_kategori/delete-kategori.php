@@ -1,0 +1,19 @@
+<?php
+
+session_start();
+
+include '../connection.php';
+
+$id_kategori = $_GET['id_kategori'];
+
+$query = "DELETE FROM kategori WHERE kategori_id = $id_kategori";
+$hasil = mysqli_query($db, $query);
+
+if ($hasil == true) 
+{
+	$_SESSION['messages'] = '<font color="green">Kategori Berhasil di Hapus!</font>';
+    header('location: list-kategori.php');
+} else {
+echo "ghghgh:";
+    // header('location: tambah-kategori.php');
+}
